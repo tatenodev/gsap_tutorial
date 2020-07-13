@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GSAP tutorial 02</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Tweening Basics</h1>
+  </header>
+
+  <section>
+    <h2>gsap.to()</h2>
+    <div>
+      <button id="js-button_to">START</button>
+      <div class="animation-area">
+        <div class="box boxtype1 animation1">box</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>gsap.from()</h2>
+    <div>
+      <button id="js-button_from">START</button>
+      <div class="animation-area">
+        <div class="box boxtype2 animation2">box</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>gsap.set()</h2>
+    <p>・durationが0と同じ動作をする</p>
+    <div>
+      <button id="js-button_set">START</button>
+      <div class="animation-area">
+        <div class="box boxtype3 animation3">box</div>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.0/gsap.min.js"></script>
+  <script>
+    // ========== gsap.to() 1 ==========
+    const gsapTo = () => {
+      gsap.to('.animation1', {
+        duration: 1,
+        x: 100,
+        rotate: 360,
+        scale: 1.5,
+        ease: "bounce.out",
+        startAt:{
+          x: 0,
+          rotate: 0,
+          scale: 1,
+        }
+      });
+    }
+    const button_to = document.getElementById('js-button_to');
+    button_to.addEventListener('click', gsapTo);
+
+    // ========== gsap.from(); ==========
+    const gsapFrom = () => {
+      gsap.from('.animation2', {
+        duration: 1,
+        x: 300,
+        opacity: 0,
+        skewX: 45,
+        ease: "power4.out",
+      })
+    }
+    const button_from = document.getElementById('js-button_from');
+    button_from.addEventListener('click', gsapFrom);
+
+    // ========== gsap.set() ==========
+    const gsapSet = () => {
+      gsap.set('.animation3', {
+        x: 100,
+        scale: 0.5
+      })
+    }
+    const button_set = document.getElementById('js-button_set');
+    button_set.addEventListener('click', gsapSet);
+
+  </script>
+</body>
+</html>
