@@ -1,0 +1,17 @@
+@charset "utf-8";
+
+.box-flexwrap {
+  display: flex;
+}
+
+.box {
+  width: 50px;
+  height: 50px;
+  background: #FF9763;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  border-radius: 5px;
+  margin: 2px;
+}

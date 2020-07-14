@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GSAP tutorial 03</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>onComplete</h2>
+  <button id="button01">start</button>
+  <div class="box-flexwrap">
+    <div class="box anime1">box</div>
+    <div class="box anime1">box</div>
+  </div>
+  <div id="textarea"></div>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.0/gsap.min.js"></script>
+  <script>
+
+    const btnComp = document.getElementById('button01');
+
+    const tweenComplete = (message) => {
+      const textarea = document.getElementById('textarea');
+      textarea.innerHTML += message + "</br>"
+    }
+    
+    const animeComp = () => {
+      gsap.to('.anime1', {
+        duration: 1,
+        x: 100,
+        onStart: tweenComplete,
+        onStartParams: ["anime1の動作開始。"],
+        onComplete: tweenComplete,
+        onCompleteParams: ["anime1の動作が終了しました。"],
+        startAt: {
+          x: 0,
+        }
+      })
+    }
+
+    btnComp.addEventListener('click', animeComp);
+
+  </script>
+</body>
+</html>
